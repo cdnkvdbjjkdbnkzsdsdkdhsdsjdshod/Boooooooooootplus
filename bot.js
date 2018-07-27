@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
- const prefix = "!";
+ const prefix = "$";
 client.on('ready', () => {
     console.log('I am ready!');
 });
@@ -34,8 +34,8 @@ const moment = require('moment');
 //////////////////////////////////////////////iyvu
 
 
-const developers = ["456641975932813345"]
-const adminprefix = "!";
+const developers = ["463781827086254083"]
+const adminprefix = "$";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
@@ -230,7 +230,7 @@ client.on('message',async message => {
 
 client.on('message', message => {
           let args = message.content.split(' ').slice(1);
-   if(message.content.split(' ')[0] == '!color'){
+   if(message.content.split(' ')[0] == '$color'){
            const embedd = new Discord.RichEmbed()
      .setFooter('Requested by '+message.author.username, message.author.avatarURL)
    .setDescription(`**لا يوجد لون بهذا الأسم ** :x: `)
@@ -462,7 +462,7 @@ hours = 12;
 });
 
 client.on('message', message => {
-    if(message.content.startsWith('!help')) {
+    if(message.content.startsWith('$help')) {
    const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
         .setDescription(`**
@@ -485,7 +485,7 @@ $giveaway - قيف اواي :tada:
 });
 
 client.on('message', message => {
-    if(message.content.startsWith('!help')) {
+    if(message.content.startsWith('$help')) {
    const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
         .setDescription(`**
@@ -498,7 +498,7 @@ $sup - الدعم الفني :nut_and_bolt:
 });
 
 client.on('message', message => {
-    if(message.content.startsWith('!sup')) {
+    if(message.content.startsWith('$sup')) {
 message.author.send('https://discord.gg/dGkWV7Z')
     }
 });
