@@ -149,8 +149,8 @@ client.on('message', message => {
 
 client.on('message', message => {
               if(!message.channel.guild) return;
-    var prefix = "$";
-    if(message.content.startsWith('$bc')) {
+    var prefix = "!";
+    if(message.content.startsWith('!bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للإدارة**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية لاستعمال هاذا الأمر** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
@@ -230,7 +230,7 @@ client.on('message',async message => {
 
 client.on('message', message => {
           let args = message.content.split(' ').slice(1);
-   if(message.content.split(' ')[0] == '$color'){
+   if(message.content.split(' ')[0] == '!color'){
            const embedd = new Discord.RichEmbed()
      .setFooter('Requested by '+message.author.username, message.author.avatarURL)
    .setDescription(`**لا يوجد لون بهذا الأسم ** :x: `)
@@ -340,7 +340,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-    if(message.content.startsWith('$help')) {
+    if(message.content.startsWith('!help')) {
    const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
         .setDescription(`**
@@ -462,7 +462,7 @@ hours = 12;
 });
 
 client.on('message', message => {
-    if(message.content.startsWith('$help')) {
+    if(message.content.startsWith('!help')) {
    const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
         .setDescription(`**
@@ -485,7 +485,7 @@ $giveaway - قيف اواي :tada:
 });
 
 client.on('message', message => {
-    if(message.content.startsWith('$help')) {
+    if(message.content.startsWith('!help')) {
    const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
         .setDescription(`**
@@ -498,7 +498,7 @@ $sup - الدعم الفني :nut_and_bolt:
 });
 
 client.on('message', message => {
-    if(message.content.startsWith('$sup')) {
+    if(message.content.startsWith('!sup')) {
 message.author.send('https://discord.gg/dGkWV7Z')
     }
 });
@@ -535,48 +535,7 @@ message.channel.send(image)
 
 
 
-  client.on('message', message => {
-    if (message.content.startsWith("$tr")) {
 
-        const translate = require('google-translate-api');
-        const Discord = require('discord.js');
-
-    let toTrans = message.content.split(' ').slice(1);
-    let language;
-
-    language = toTrans[toTrans.length - 2] === 'to' ? toTrans.slice(toTrans.length - 2, toTrans.length)[1].trim() : undefined;
-    if (!language) {
-        return message.reply(`**من فضلك قم باستخدام . \`$tr [الكلمه] to [اللغه]\`**`);
-    }
-    let finalToTrans = toTrans.slice(toTrans.length - toTrans.length, toTrans.length - 2).join(' ');
-    translate(finalToTrans, {to: language}).then(res => {
-            message.channel.send({embed: {
-                color: 3447003,
-                author: {
-                  name: ':fog: Translate.',
-                  icon_url: client.user.avatarURL
-                },
-                fields: [{
-                    value: `**من اللغه : ** ${res.from.language.iso}\n\`\`\`${finalToTrans}\`\`\`\n**آلي اللغة :**${language}\n\`\`\`${res.text}\`\`\``
-                  }
-                ],
-                timestamp: new Date(),
-                footer: {
-                  icon_url: client.user.avatarURL,
-                  text: "S Bot © | 2018."
-                }
-              }
-            });
-    }).catch(err => {
-        message.channel.send({
-            embed: {
-                description: '❌  لم استطيع العثور علي اللغة المطلوبه',
-                color: 0xE8642B
-            }
-        });
-    });
-    }
-});
   client.on('message',async message =>{ 
     if(message.content.startsWith(prefix + "channels")) {
         let i = 1;
@@ -643,18 +602,7 @@ client.on("message", message => {
 		} 
 	} 
 });
-client.on('message', message => {
-            if(!message.channel.guild) return;
-var args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('-bcall')){
- if (message.author.id !== '456641975932813345') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
- if(!message.author.id === '456641975932813345') return;
-message.channel.sendMessage('جار ارسال الرسالة |✅')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
+
 
   client.on('message', message => {
 if(message.content == '<@465885551329804288>') {
@@ -1130,7 +1078,7 @@ message.channel.send(embed)
 
 client.on('message', message => {
 
-  if(message.content.startsWith('$ping')) {
+  if(message.content.startsWith('!ping')) {
     message.channel.send('**:stopwatch: Pinging...**').then(sent => {
       sent.edit(`**Pong! Took ${sent.createdTimestamp - message.createdTimestamp} ms :stopwatch: **`)
 })
@@ -1178,7 +1126,7 @@ if(message.author.bot) return;
 	category : 'click here',
 	channel : 'click here'
 }
-      if(message.content.startsWith('$temp on')){
+      if(message.content.startsWith('!temp on')){
           if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
   var ggg= message.guild.createChannel('click here', 'category').then(cg => {
    var ccc =message.guild.createChannel('click here', 'voice').then(ch => {
