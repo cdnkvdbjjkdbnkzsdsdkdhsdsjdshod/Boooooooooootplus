@@ -340,7 +340,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-    if(message.content.startsWith('!help')) {
+    if(message.content.startsWith('$help')) {
    const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
         .setDescription(`**
